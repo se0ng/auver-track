@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auver Track</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="logo">
+            <a href="#">
+                <img src="img/logo_ClrZ_minimal.png" alt="">
+            </a>
+        </h1>
+
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="#subscription">SUBSCRIPTION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+    <main class="main">
+        <a href="download.html">
+            <div class="cta-btn">
+                <p class="cta-btn-txt">DOWNLOAD</p>
+            </div>
+        </a>
+
+        <div class="kv">
+            <h2 class="app-title">毎日に音色を。</h2>
+
+            <div class="blocks">
+                <div class="b1">
+                </div>
+                <div class="b2">
+                </div>
+                <div class="b3">
+                </div>
+                <div class="b2">
+                </div>
+                <div class="b1">
+                </div>
+            </div>
+
+
+            <div class="kv-imgs">
+                <img src="img/at_sp1.png" alt="" class="kv-img sp1">
+                <img src="img/at_sp2.png" alt="" class="kv-img sp2">
+                <img src="img/at_pc.png" alt="" class="kv-img pc">
+            </div>
+        </div>
+
+        <div class="subscription" id="subscription">
+            <h2>SUBSCRIPTION</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>PAYMENT METHODS</h3>
+                    <ul class="list">
+                        <li>Apple Pay</li>
+                        <li>Pay Pay</li>
+                        <li>Pay Pal</li>
+                        <li>Credit</li>
+                        <li>VISA</li>
+                        <li>JCB</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>PLAN</h3>
+                    <p class="card-txt">Standard Plan</p>
+                    <ul class="list">
+                        <li>月額500円</li>
+                        <li>1month $3.5</li>
+                    </ul>
+                    <p class="card-txt">Premium Plan</p>
+                    <ul class="list">
+                        <li>月額700円</li>
+                        <li>1month $5</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>CONTENT</h3>
+                    <p class="card-txt">広告なし</p>
+                    <p class="card-txt">友達や家族, 恋人と"リアルタイム"で"同時再生"</p>
+                    <p class="card-txt">ゴーストチャット</p>
+                    <p class="card-txt">AI選曲</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="floor">
+            <address class="address">
+                <dl class="info">
+                    <div class="address-item">
+                        <dt>MAIL</dt>
+                        <dd><a class="link"
+                                href="mailto:atocolorz@gmail.com?subject=お問い合わせ&body=お問い合わせ内容をご記入ください">atocolorz@gmail.com</a>
+                        </dd>
+                    </div>
+                    <div class="address-item">
+                        <dt>IG</dt>
+                        <dd><a class="link" href="https://www.instagram.com/atocolorz/">@atocolorz</a></dd>
+                    </div>
+                </dl>
+            </address>
+            <div class="form" id="contact">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">NAME <span class="required">*必須</span></label>
+                        <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">CONTENT<span class="required">*必須</span></label>
+                        <textarea id="content" name="content" rows="4" required placeholder="お問い合わせ内容"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">画像/ファイルを選択 <span class="optional">*任意</span></label>
+                        <input type="file" id="image" name="image" accept="image/*, .pdf">
+                        <p class="file-note">JPG, PNG, PDFなどがアップロード可能です</p>
+                    </div>
+
+                    <button type="submit" class="submit-btn">送信</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer-txt">&copy; 2025 ColorZ All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
