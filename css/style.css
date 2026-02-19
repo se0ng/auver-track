@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 /* FONT */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 *,
 *::before,
@@ -14,6 +13,40 @@
     list-style: none;
 }
 
+:root {
+    --c-glass: #aaa;
+    --c-light: #f2f3f4;
+    --c-dark: #222;
+
+    --f-formal: "Figtree", sans-serif;
+
+    --glass-reflex-dark: 1;
+    --glass-reflex-light: 1;
+
+    --saturation: 150%;
+
+    --glass-bg: color-mix(in srgb, var(--c-glass) 12%, transparent);
+
+    --glass-effect:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-light: #222 !important;
+        --c-dark: #f2f3f4 !important;
+    }
+}
+
 html,
 body {
     font-size: 16px;
@@ -23,16 +56,16 @@ body {
 }
 
 body {
-    font-family: "DM Sans";
+    font-family: var(--f-formal);
     /* font-optical-sizing: auto; */
-    font-weight: 500;
+    font-weight: normal;
     font-style: normal;
-    background: #f2f3f4;
-    color: #0c090a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    background: var(--c-light);
+    color: var(--c-dark);
+
     width: 100vw;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,7 +73,7 @@ body {
 }
 
 a {
-    color: #0c090a;
+    color: var(--c-dark);
 }
 
 a:hover {
@@ -50,15 +83,18 @@ a:hover {
 /* MENU */
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+    
     width: 100vw;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    
     font-size: 1.5rem;
-    font-weight: 1000;
+    font-weight: bold;
+    
     padding: 2rem 4rem 0;
     z-index: 5;
 }
@@ -77,21 +113,26 @@ a:hover {
     align-items: center;
     gap: 2rem;
     padding: .5rem 2rem;
-    background-color: rgba(255, 255, 255, .4);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: 4rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
 }
 
 .cta-btn {
     width: 10vw;
     height: 10vw;
-    background-color: rgba(242, 243, 244, .5);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: 10rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,7 +145,7 @@ a:hover {
 .cta-btn-txt {
     text-align: center;
     font-size: 1.5vw;
-    font-weight: 1000;
+    font-weight: bold;
 }
 
 /* MAIN */
@@ -119,8 +160,10 @@ main {
 /* KV */
 .kv {
     position: relative;
+    
     width: 100vw;
     height: 100vh;
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -129,7 +172,9 @@ main {
 
 .app-title {
     position: absolute;
+    
     font-size: 3rem;
+    
     left: 15vw;
     top: 10vh;
 }
@@ -175,11 +220,11 @@ main {
 .b2,
 .b3 {
     width: 10vw;
-    background-color: rgba(255, 255, 255, .2);
-    backdrop-filter: blur(.2px);
-    -webkit-backdrop-filter: blur(.2px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
     border-radius: 1rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
 }
 
 .b1 {
@@ -220,11 +265,13 @@ h2 {
 .card {
     width: 20vw;
     height: 50vh;
-    background-color: rgba(255, 255, 255, .5);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: 1rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -250,13 +297,15 @@ h2 {
 
 /* DOWNLOAD */
 .download {
-    background-color: #f2f3f4;
+    background: var(--c-light);
+    color: var(--c-dark);
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
     height: 100vh;
     margin: 0;
-    color: #0c090a;
     overflow: hidden;
 }
 
@@ -286,7 +335,7 @@ h2 {
 
 .platform {
     position: relative;
-    color: #0c090a;
+    color: var(--c-dark);
     font-weight: 800;
     font-size: 3rem;
     padding: 1rem 2rem;
@@ -299,31 +348,33 @@ h2 {
 /* GLASS */
 .highlight {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 0;
     height: 0;
     border-radius: 3rem;
-    background: rgba(255, 255, 255, .1);
-    backdrop-filter: blur(2px) saturate(150%);
-    -webkit-backdrop-filter: blur(2px) saturate(150%);
-    box-shadow: 5px 5px 10px -10px rgba(0, 0, 0, .8),
-        inset 20px 20px 5px rgba(255, 255, 255, .2);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     transition: all 3s cubic-bezier(.25, 1, .5, 1);
     pointer-events: none;
     z-index: 10;
 }
 
 .download-btn {
-    background: rgba(255, 255, 255, .1);
-    backdrop-filter: blur(2px) saturate(150%);
-    -webkit-backdrop-filter: blur(2px) saturate(150%);
-    box-shadow: 5px 5px 10px -10px rgba(0, 0, 0, .8),
-        inset 20px 20px 5px rgba(255, 255, 255, .2);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: 8rem;
     padding: 1rem 3rem;
-    font-weight: 1000;
+    
+    font-weight: bold;
     font-size: 3rem;
+    
     display: flex;
     justify-content: center;
 }
@@ -347,15 +398,17 @@ h2 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    
     width: 45vw;
     height: 35vh;
     padding: 4rem;
-    color: #222;
-    background-color: rgba(255, 255, 255, .5);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
-    border-radius: 1rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
+    
+    color: var(--c-dark);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
 }
 
 .info {
@@ -387,11 +440,13 @@ h2 {
 .form {
     width: 20vw;
     height: 30vw;
-    background-color: rgba(255, 255, 255, .5);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: 1rem;
-    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -435,7 +490,7 @@ textarea {
 
 input[type="text"]:focus,
 textarea:focus {
-    border-color: #222;
+    border-color: var(--c-dark);
     outline: none;
     box-shadow: 0 0 .5rem rgba(0, 0, 0, .2);
 }
@@ -454,12 +509,14 @@ textarea {
     display: block;
     width: 100%;
     padding: .5vw;
-    background-color: rgba(242, 243, 244, .2);
-    backdrop-filter: blur(.2px);
-    -webkit-backdrop-filter: blur(.2px);
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: .5rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
-    color: #222;
+    color: var(--c-dark);
     border: none;
     font-size: 1vw;
     cursor: pointer;
@@ -468,12 +525,13 @@ textarea {
 }
 
 .submit-btn:hover {
-    background-color: #222;
-    backdrop-filter: blur(.2px);
-    -webkit-backdrop-filter: blur(.2px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow: var(--glass-effect);
+    
     border-radius: .5rem;
-    box-shadow: 2px 2px .5rem 2px rgba(0, 0, 0, .2);
-    color: #f2f3f4;
+    color: var(--c-light);
 }
 
 .submit-btn:active {
