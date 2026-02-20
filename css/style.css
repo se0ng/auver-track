@@ -60,12 +60,12 @@ body {
     /* font-optical-sizing: auto; */
     font-weight: normal;
     font-style: normal;
-    
+
     background: var(--c-light);
     color: var(--c-dark);
 
     width: 100vw;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,30 +80,42 @@ a:hover {
     opacity: .7;
 }
 
+img {
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
 /* MENU */
 .header {
     position: fixed;
-    inset: 0;
-    
-    width: 100vw;
-    
+    top: 0;
+
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
-    font-size: 1.5rem;
+
+    font-size: 20px;
     font-weight: bold;
-    
+
     padding: 2rem 4rem 0;
     z-index: 5;
 }
 
-.logo img {
-    width: auto;
-    height: 4rem;
-    display: block;
-    align-items: center;
+.logo {
+    height: 60px;
+}
+
+.logo-img {
+    height: 60px;
+
+    background: url("../img/logo_ClrZ_minimal.png") no-repeat center / contain;
 }
 
 .menu {
@@ -113,24 +125,24 @@ a:hover {
     align-items: center;
     gap: 2rem;
     padding: .5rem 2rem;
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: 4rem;
 }
 
 .cta-btn {
-    width: 10vw;
-    height: 10vw;
-    
+    width: 200px;
+    height: 200px;
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: 10rem;
 
     display: flex;
@@ -144,7 +156,7 @@ a:hover {
 
 .cta-btn-txt {
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -160,10 +172,10 @@ main {
 /* KV */
 .kv {
     position: relative;
-    
+
     width: 100vw;
     height: 100vh;
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -172,9 +184,9 @@ main {
 
 .app-title {
     position: absolute;
-    
+
     font-size: 3rem;
-    
+
     left: 15vw;
     top: 10vh;
 }
@@ -209,9 +221,11 @@ main {
 }
 
 .blocks {
+    width: calc(100% - 80px);
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: 5vw;
 }
@@ -219,24 +233,24 @@ main {
 .b1,
 .b2,
 .b3 {
-    width: 10vw;
+    width: 100%;
     background: var(--glass-bg);
-    backdrop-filter: blur(8px) saturate(var(--saturation));
-    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    backdrop-filter: blur(1px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(1px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
     border-radius: 1rem;
 }
 
 .b1 {
-    height: 40vh;
+    height: 200px;
 }
 
 .b2 {
-    height: 60vh;
+    height: 400px;
 }
 
 .b3 {
-    height: 80vh;
+    height: 600px;
 }
 
 /* SUBSCRIPTION */
@@ -265,12 +279,12 @@ h2 {
 .card {
     width: 20vw;
     height: 50vh;
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: 1rem;
     padding: 3rem;
     display: flex;
@@ -299,11 +313,11 @@ h2 {
 .download {
     background: var(--c-light);
     color: var(--c-dark);
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -352,12 +366,12 @@ h2 {
     width: 0;
     height: 0;
     border-radius: 3rem;
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     transition: all 3s cubic-bezier(.25, 1, .5, 1);
     pointer-events: none;
     z-index: 10;
@@ -368,13 +382,13 @@ h2 {
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: 8rem;
     padding: 1rem 3rem;
-    
+
     font-weight: bold;
     font-size: 3rem;
-    
+
     display: flex;
     justify-content: center;
 }
@@ -398,13 +412,14 @@ h2 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    
+
     width: 45vw;
     height: 35vh;
     padding: 4rem;
-    
+    border-radius: 1rem;
+
     color: var(--c-dark);
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
@@ -418,7 +433,7 @@ h2 {
     align-items: flex-start;
     gap: 1rem;
     font-style: normal;
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 .info dt {
@@ -440,12 +455,12 @@ h2 {
 .form {
     width: 20vw;
     height: 30vw;
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -509,12 +524,12 @@ textarea {
     display: block;
     width: 100%;
     padding: .5vw;
-    
+
     background: var(--glass-bg);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: .5rem;
     color: var(--c-dark);
     border: none;
@@ -529,7 +544,7 @@ textarea {
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
-    
+
     border-radius: .5rem;
     color: var(--c-light);
 }
