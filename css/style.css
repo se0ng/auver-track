@@ -368,8 +368,8 @@ h2 {
     border-radius: 3rem;
 
     background: var(--glass-bg);
-    backdrop-filter: blur(8px) saturate(var(--saturation));
-    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    backdrop-filter: blur(1px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(1px) saturate(var(--saturation));
     box-shadow: var(--glass-effect);
 
     transition: all 3s cubic-bezier(.25, 1, .5, 1);
@@ -394,7 +394,7 @@ h2 {
 }
 
 .download-btn:hover {
-    opacity: .7;
+    opacity: .8;
 }
 
 /* FOOTER */
